@@ -1,10 +1,10 @@
 # Use OpenJDK 17 as the base image
 # FROM openjdk:17-jdk-slim
-FROM maven:3.9.6-eclipse-temurin-17 build
+# FROM maven:3.9.6-eclipse-temurin-17 build
 
-WORKDIR /build
-COPY ..
-Run mvn clean package -DskipTests
+# WORKDIR /build
+# COPY ..
+# Run mvn clean package -DskipTests
 
 
 
