@@ -1,18 +1,15 @@
- 
- 
-# Runtime stage
-FROM eclipse-temurin:17-jre-alpine
-# FROM openjdk:17-jdk-slim
+# Use OpenJDK 17 as the base image
+FROM openjdk:17-jdk-slim
 
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the JAR from build stage
-# COPY --from=build /app/target/Test_Jenkins-0.0.1-SNAPSHOT.jar app.jar
-COPY target/app.jar app.jar
+# Copy the JAR file from the target directory
+COPY target/*.jar app.jar
 
-# Expose port 8080
+# Expose the port that the Spring Boot application will run on
 EXPOSE 8080
 
-# Run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Run the JAR file
+ENTRYPOINT ["java", "-jar", "app.jar"] 
 
